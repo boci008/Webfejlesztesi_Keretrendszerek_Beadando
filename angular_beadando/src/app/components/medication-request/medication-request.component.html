@@ -1,0 +1,14 @@
+<mat-card style="min-width: 60vw">
+    <mat-card-header>
+        <div><mat-icon class="" (click)="showInfo(this.medication)">info_outline</mat-icon></div>
+        <div><mat-icon class="" (click)="openUpdateMed(this.medication)">edit</mat-icon></div>
+        <div><mat-icon class="" (click)="deleteMed(this.medication)">delete_forever</mat-icon></div>
+        <mat-card-title>{{ this.medication.subject }}</mat-card-title>
+        <mat-card-subtitle>{{ this.medication.authoredOn | date: 'yyyy/MM/dd, HH:mm'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <b appAttributeName>Medication:</b> {{ this.medication.medication }}<br>
+      <b appAttributeName>Status:</b> <span [ngClass]="{'active': this.medication.status === 'active', 'completed': this.medication.status === 'completed'}">{{ this.medication.status }}</span><br>
+        <b appAttributeName>Intent:</b> {{ this.medication.intent }}
+    </mat-card-content>
+</mat-card>

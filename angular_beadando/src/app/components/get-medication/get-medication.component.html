@@ -1,0 +1,13 @@
+<div style="display: flex; justify-content: flex-end">
+  <button mat-button type="button" mat-raised-button color="primary" class="max-width" (click)="addMedicationRequest()">Add Request</button>
+</div>
+<div style="display: flex; justify-content: center">
+  <div *ngIf="this.meds.length>0; else elseBlock">
+    <app-medication-request *ngFor="let med of meds" [medication]="med" (deleteEvent)="deleteMed($event)"></app-medication-request>
+  </div>
+  <ng-template #elseBlock>
+    <div>
+      There are no Medication Requests.
+    </div>
+  </ng-template>
+</div>

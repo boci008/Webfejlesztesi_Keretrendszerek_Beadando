@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>Medication request for: {{med.subject}}</h2>
+<mat-dialog-content>
+  <b appAttributeName>Medication:</b> {{ this.med.medication }}<br>
+  <b appAttributeName>Status:</b><br>
+  <mat-select [(ngModel)]="selectedStatus"> <!-- 'active' | 'on-hold' | 'cancelled' | 'completed' | 'entered-in-error' | 'stopped' | 'draft' | 'unknown' -->
+    <mat-option value="active">active</mat-option>
+    <mat-option value="on-hold">on-hold</mat-option>
+    <mat-option value="cancelled">cancelled</mat-option>
+    <mat-option value="completed">completed</mat-option>
+    <mat-option value="entered-in-error">entered-in-error</mat-option>
+    <mat-option value="stopped">stopped</mat-option>
+    <mat-option value="draft">draft</mat-option>
+    <mat-option value="unknown">unknown</mat-option>
+  </mat-select>
+  <b appAttributeName>Intent:</b><br>
+  <mat-select [(ngModel)]="selectedIntent"> <!-- 'proposal' | 'plan' | 'order' | 'original-order' | 'reflex-order' | 'filler-order' | 'instance-order' | 'option' -->
+    <mat-option value="proposal">proposal</mat-option>
+    <mat-option value="plan">plan</mat-option>
+    <mat-option value="order">order</mat-option>
+    <mat-option value="original-order">original-order</mat-option>
+    <mat-option value="reflex-order">reflex-order</mat-option>
+    <mat-option value="filler-order">filler-order</mat-option>
+    <mat-option value="instance-order">instance-order</mat-option>
+    <mat-option value="option">option</mat-option>
+  </mat-select>
+  <span *ngIf="this.med.authoredOn!=undefined">
+    <b appAttributeName>Authored on:</b> {{ this.med.authoredOn | date: 'yyyy/MM/dd, HH:mm:ss'}}<br>
+  </span>
+  <span *ngIf="this.med.recorder!=undefined">
+    <b appAttributeName>Recorder:</b> {{ this.med.recorder }}<br>
+  </span>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button mat-raised-button style="background-color: green; color: #fff;" (click)="updateMed()">Update</button>
+</mat-dialog-actions>

@@ -1,0 +1,22 @@
+<mat-toolbar>
+      MedicationRequest Application
+      <button mat-button [matMenuTriggerFor]="menu">
+        Sites<mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/login">
+          <mat-icon>person</mat-icon><span>Login</span>
+        </button>
+        <button mat-menu-item routerLink="/register">
+          <mat-icon>person</mat-icon><span>Register</span>
+        </button>
+        <button mat-menu-item routerLink="/getMedication">
+          <mat-icon>medication</mat-icon><span>Medication Management</span>
+        </button>
+        <button mat-menu-item routerLink="/">
+          <mat-icon>arrow_back</mat-icon><span>Home</span>
+        </button>
+      </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>

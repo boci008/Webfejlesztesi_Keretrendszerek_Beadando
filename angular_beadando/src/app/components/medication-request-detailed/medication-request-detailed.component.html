@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Medication request for: {{med.subject}}</h2>
+<mat-dialog-content>
+  <b appAttributeName>Medication:</b> {{ this.med.medication }}<br>
+  <b appAttributeName>Status:</b> {{ this.med.status }}<br>
+  <b appAttributeName>Intent:</b> {{ this.med.intent }}<br>
+  <span *ngIf="this.med.authoredOn!=undefined">
+    <b appAttributeName>Authored on:</b> {{ this.med.authoredOn | date: 'yyyy/MM/dd, HH:mm:ss'}}<br>
+  </span>
+  <span *ngIf="this.med.statusReason!=undefined">
+    <b appAttributeName>Status reason:</b> {{ this.med.statusReason }}<br>
+  </span>
+  <span *ngIf="this.med.recorder!=undefined">
+    <b appAttributeName>Recorder:</b> {{ this.med.recorder }}<br>
+  </span>
+  <span *ngIf="this.med.dosageInstruction!=undefined">
+    <b appAttributeName>Dosage instruction:</b>
+    <ul>
+      <li *ngFor="let dos of this.med.dosageInstruction">{{dos}}</li>
+    </ul>
+    <br>
+  </span>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

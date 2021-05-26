@@ -1,0 +1,49 @@
+<form [formGroup]="form" (ngSubmit)="addMedication()" autocomplete="off">
+  <mat-card style="min-width: 60vw">
+    <mat-card-header>
+      <mat-card-title>
+        Subject:
+        <mat-form-field appearance="fill">
+          <mat-label>Subject</mat-label>
+          <input matInput formControlName="subject">
+        </mat-form-field>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <b appAttributeName>Medication:</b>
+      <mat-form-field appearance="fill">
+        <mat-label>Medication</mat-label>
+        <input matInput formControlName="medication">
+      </mat-form-field>
+      <br>
+      <b appAttributeName>Status:</b>
+      <mat-select [(value)]="defaultStatus" formControlName="status"> <!-- 'active' | 'on-hold' | 'cancelled' | 'completed' | 'entered-in-error' | 'stopped' | 'draft' | 'unknown' -->
+        <mat-option value="active">active</mat-option>
+        <mat-option value="on-hold">on-hold</mat-option>
+        <mat-option value="cancelled">cancelled</mat-option>
+        <mat-option value="completed">completed</mat-option>
+        <mat-option value="entered-in-error">entered-in-error</mat-option>
+        <mat-option value="stopped">stopped</mat-option>
+        <mat-option value="draft">draft</mat-option>
+        <mat-option value="unknown">unknown</mat-option>
+      </mat-select>
+      <br>
+      <b appAttributeName>Intent:</b>
+      <mat-select [(value)]="defaultIntent" formControlName="intent"> <!-- 'proposal' | 'plan' | 'order' | 'original-order' | 'reflex-order' | 'filler-order' | 'instance-order' | 'option' -->
+        <mat-option value="proposal">proposal</mat-option>
+        <mat-option value="plan">plan</mat-option>
+        <mat-option value="order">order</mat-option>
+        <mat-option value="original-order">original-order</mat-option>
+        <mat-option value="reflex-order">reflex-order</mat-option>
+        <mat-option value="filler-order">filler-order</mat-option>
+        <mat-option value="instance-order">instance-order</mat-option>
+        <mat-option value="option">option</mat-option>
+      </mat-select>
+      <br>
+      <button mat-button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid">Submit Request</button>
+    </mat-card-content>
+  </mat-card>
+</form>
+
+
+
